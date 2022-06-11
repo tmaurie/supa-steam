@@ -1,27 +1,28 @@
-import React from 'react';
+import * as React from 'react';
 import {
   ChakraProvider,
-  Box,
-  Text,
-  VStack,
-  Code,
-  Grid,
-  theme,
+  extendTheme, Box, Grid, VStack,
 } from '@chakra-ui/react';
-import { ColorModeSwitcher } from './ColorModeSwitcher';
-import {Header} from "./components/Header";
+import { Header } from './components/Header';
+import { GameList } from './components/GameList';
 
-function App() {
+const theme = extendTheme({
+  config: {
+    useSystemColorMode: true,
+    initialColorMode: 'dark',
+  },
+});
+
+export default function App() {
   return (
     <ChakraProvider theme={theme}>
-      <Header>  </Header>
-      <Box textAlign="center" fontSize="xl">
-        <Grid minH="100vh" p={3}>
-          <ColorModeSwitcher justifySelf="flex-end" />
+      <Header />
+      <Box textAlign='center' fontSize='xl'>
+        <Grid minH='100vh' p={3}>
+
           <VStack spacing={8}>
-            <Text>
-              Edit <Code fontSize="xl">src/App.js</Code> and save to reload.
-            </Text>
+            <GameList />
+
 
           </VStack>
         </Grid>
@@ -29,5 +30,3 @@ function App() {
     </ChakraProvider>
   );
 }
-
-export default App;

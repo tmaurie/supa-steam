@@ -9,7 +9,8 @@ export function GameList() {
   const fetchGames = async () => {
     let { data, error } = await supabase
       .from('steam')
-      .select('*');
+      .select('*')
+      .limit(5);
     if (error) console.log('error', error);
     else setGames(data);
   };

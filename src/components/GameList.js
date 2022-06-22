@@ -10,7 +10,7 @@ export function GameList() {
     let { data, error } = await supabase
       .from('steam')
       .select('*')
-      .limit(5);
+      .limit(200).order('title', { ascending: true });
     if (error) console.log('error', error);
     else setGames(data);
   };

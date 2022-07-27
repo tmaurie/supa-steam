@@ -1,4 +1,4 @@
-import { Box, Flex, Heading } from '@chakra-ui/react';
+import { Box, Flex, Heading, Image } from '@chakra-ui/react';
 
 export function GameItem(game) {
   return (
@@ -12,7 +12,7 @@ export function GameItem(game) {
          bg="#101720"
          w='100%' p={4} color='white'>
       <Flex>
-        <img src={game.image}  alt="test"/>
+        <Image src={game.image} borderRadius="15px" alt="test"/>
         <Heading>{game.title}</Heading>
       </Flex>
     </Box>
